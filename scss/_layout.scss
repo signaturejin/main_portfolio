@@ -1,0 +1,337 @@
+//상단 영역
+#header {
+    width: 100%;
+    display: flex; justify-content: center;
+    position: absolute; left: 0; bottom: 0;
+    z-index: 99;
+    .center {
+        width: 500px; border-radius: 50px;
+        background-color: #4e3431;
+        transition: all 0.3s;
+        box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+        .gnb {
+            display: flex; justify-content: center;
+            li {
+                line-height: 85px; margin: 0 20px;
+                font-size: 16px;
+                a {color: #fff; transition: all 0.3s;}
+            }
+            li.on {
+                a {
+                    color: #4e3431;
+                    background-color: #fff;
+                    width: 100px; line-height: 40px;
+                    border-radius: 30px; text-align: center;
+                    display: inline-block; font-weight: 500;
+                }
+            }
+        }
+    }
+}
+#header.fixed {
+    height: 85px;
+    position: fixed; left: 0; top: 0;
+    .center {width: 100%; border-radius: 0;}
+}
+//중간 영역
+#container {
+    //intro 영역
+    .intro {
+        display: flex; justify-content: center;
+        align-items: center;
+        height: 96vh;
+        position: relative;
+        background-color: #ca5656;
+        //배경 고민중
+        .bg {
+            position: absolute; left: 0; top: 0;
+            width: 100%; height: 100%;
+            z-index: 2; overflow: hidden;
+            img {width: 100%;}
+            .black {
+                position: absolute; left: 0; top: 0;
+                width: 100%; height: 100%;
+                background-color: rgba(0,0,0,.5);
+            }
+        }
+        .border {
+            position: absolute; left: 50%; top: 50%;
+            transform: translate(-50%,-50%);
+            width: 90%;
+            height: 80%;
+            > div {
+                position: absolute; background-color: #fff;
+                &:nth-child(1),&:nth-child(2) {
+                    height: 5px;
+                    animation-name: border1;
+                    animation-duration: 1.5s;
+                    animation-timing-function: linear;
+                    animation-delay: 3.2s;
+                    animation-iteration-count: 1;
+                    animation-direction: normal;
+                    animation-fill-mode: forwards;
+
+                    @keyframes border1 {
+                        0% {width: 0;}
+                        100% {width: 100%;}
+                    }
+                }
+
+                &:nth-child(3),&:nth-child(4) {
+                    width: 5px;
+                    animation-name: border2;
+                    animation-duration: 1.5s;
+                    animation-timing-function: linear;
+                    animation-delay: 4.7s;
+                    animation-iteration-count: 1;
+                    animation-direction: normal;
+                    animation-fill-mode: forwards;
+
+                    @keyframes border2 {
+                        0% {height: 0;}
+                        100% {height: 100%;}
+                    }
+
+                }
+                
+                &:nth-child(1) {left: 0; top: 0;}
+                &:nth-child(2) {right: 0; bottom: 0;}
+                &:nth-child(3) {left: 0; bottom: 0;}
+                &:nth-child(4) {right: 0; top: 0;}
+            }
+        }
+        .center {
+            width: 80%;
+            z-index: 5;
+            .text_ani_box {
+                display: flex; justify-content: center;
+                // padding-top: 160px;
+                svg {
+                    fill: none;
+                    width: 700px;
+                    stroke-width: 4px;
+                }
+                path {
+                    // stroke: #6d1010;
+                    stroke: #fff;
+                    stroke-dasharray: 779.64;
+                    stroke-dashoffset: 779.64;
+                    // animation: name duration timing-function delay iteration-count direction fill-mode;
+                    animation: path 4s forwards .7s;
+                    box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
+                    text-shadow: 5px 5px 5px rgba(0,0,0,0.2);
+
+                    @keyframes path {
+                        80% {stroke-dashoffset: 0; }
+                        100% {
+                            stroke-dashoffset: 0;
+                            // fill: #f35d5d;
+                            fill: #fff;
+                            opacity: .9;}
+                    }
+                }
+            }
+            .text_box {
+                text-align: center; margin-top: 50px;
+                p {
+                    font-size: 23px; line-height: 55px;
+                    font-weight: 500; color: #fff;
+                    .line {
+                        // color: #f35d5d;
+                        position: relative;
+                        &::before {
+                            content: ''; width: 108%; height: 76%;
+                            display: inline-block;
+                            position: absolute; left: -2px; top: 5px;
+                            background-color: #ffd3d3;
+                            z-index: 1; border-radius: 5px;
+                        }
+                        > span {
+                            color: #642a2a; z-index: 2; position: relative;
+                            font-weight: 600;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    //about_me 영역
+    .about_me {
+        display: flex; justify-content: center;
+        align-items: center;
+        border-top: 1px solid #e05e6f;
+        // background-color: #ffc5c8;
+        height: 100vh;
+        .center {
+            width: 80%; padding-bottom: 160px;
+            .title {
+                padding: 150px 0 80px; font-size: 20px;
+                color: #f35d5d;
+            }
+            > div {
+                font-size: 15px; line-height: 25px;
+                .sub_title {
+                    font-size: 15px; padding: 75px 0 10px;
+                    i {
+                        margin-right: 5px; font-size: 12px;
+                        position: relative; bottom: 2px;
+                        color: #e05e6f;
+                    }
+                }
+                .info_st {padding: 0 0 10px;}
+            }
+            .top {
+                display: flex; padding-bottom: 55px;
+                border-bottom: 1px solid #e05e6f;
+                //기본사항
+                .info {width: 35%;}
+                //나를 표현하는 문장
+                .sentence {
+                    position: relative;
+                    &::before {
+                        content: ""; display: block;
+                        width: 395px; height: 36px;
+                        position: absolute; left: -2px; top: -3px;
+                        background-color: #e05e6f;
+                        z-index: 1;
+                    }
+                    .t_text {
+                        font-size: 26px; font-weight: 700;
+                        color: #fff;
+                        z-index: 2; position: relative;
+                        margin-bottom: 18px;
+                    }
+                    .b_text {
+                        font-size: 14px; font-weight: 500;
+                        line-height: 24px;
+                    }
+                }
+            }
+            .bottom {
+                display: flex;
+                > div {
+                    &:nth-child(1){width: 45%;}
+                    &:nth-child(2){width: 45%;}
+                    &:nth-child(3){width: 20%;}
+                }
+                .wrap {
+                    display: flex;
+                    .left {width: 50%;}
+                    .ed_left {width: 65%;}
+                    .right {width: 50%;}
+                }
+            }
+        }
+    }
+    //portfolio 영역
+    .portfolio {
+        padding-top: 85px;
+        .pf {
+            display: flex; overflow: hidden; height: 100vh;
+            background-color: #fffaf6;
+            > div {width: 50%;}
+            .left {
+                overflow: hidden; position: relative;
+                a {
+                    img {width: 100%;}
+                }
+                //test
+                .move {img{width: 100%;}}
+                .hover_bg {
+                    position: absolute; left: 0; top: 0;
+                    width: 100%; height: 100%;
+                    background-color: rgba(0,0,0,0.6);
+                    text-align: center; transition: all 0.5s;
+                    opacity: 0;
+                    a {
+                        color: #fff; font-size: 22px;
+                        width: 100%; height: 100%;
+                        display: flex; align-items: center;
+                        justify-content: center;
+                        flex-direction: column;
+                        p {margin-top: 20px;}
+                    }
+                }
+                &:hover {
+                    .hover_bg {opacity: 1;}
+                }
+            }
+            .right {
+                padding: 0 60px; box-sizing: border-box;
+                display: flex; align-items: center;
+                .context {
+                    .title {
+                        padding: 0 0 20px; font-size: 20px;
+                        color: #f35d5d;
+                    }
+                    .link {
+                        display: block; color: #f35d5d;
+                        font-weight: 600; font-size: 16px;
+                        padding-bottom: 20px;
+                        i {margin-right: 3px; font-size: 14px;}
+                    }
+                    .info1 {
+                        padding-bottom: 30px;
+                        font-size: 15px; line-height: 25px;
+                        p {
+                            span {font-weight: 500; color: #ca5656;}
+                        }
+                    }
+                    .info2 {
+                        p {
+                            font-size: 15px; padding-left: 8px;
+                            line-height: 25px;
+                            &:first-child {
+                                padding: 20px 0 10px;
+                                font-weight: 500;
+                                color: #ca5656;
+                                i {
+                                    font-size: 12px; position: relative;
+                                    bottom: 2px; margin-right: 5px;
+                                    color: #eb6d68;
+                                }
+                            }
+                        }
+                        .bank {
+                            font-size: 14px; padding-left: 18px;
+                            mark {
+                                font-weight: 500; background-color: #ffcbc9;
+                                padding: 0 5px;
+                            }
+                            i {
+                                font-size: 11px; position: relative;
+                                bottom: 1px; margin: 0 5px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+//하단 영역
+#footer {
+    width: 100%;
+    display: flex; justify-content: center;
+    border-top: 1px solid #c2c2c2;
+    color: #fff;
+    background-color: #562b2b;
+    .title {
+        padding-bottom: 100px; font-size: 20px;
+        color: #fff;
+    }
+    .center {
+        width: 80%; padding: 100px 0;
+        .f_top {
+            display: flex;
+            > div {
+                width: 50%; font-weight: 500; font-size: 20px;
+                .sub_title {font-weight: normal; padding-bottom: 15px;}
+            }
+        }
+        .f_bot {
+            padding-top: 100px; font-size: 30px;
+            font-weight: 500;
+        }
+    }
+}
